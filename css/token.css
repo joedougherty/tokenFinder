@@ -1,0 +1,64 @@
+html, body { 
+	height: 100%; 
+	margin: 0; 
+	padding: 0;
+	background-color:#000; 
+}
+
+div#app_wrapper {
+	width: 320px;
+	
+	border: 1px solid #fff;
+}
+
+div#where_you_at h1 {
+	color: #fff;
+	size: 20px;
+	font-family: Arial;
+	margin-bottom: 2px;
+	margin-top: 2px;
+}   
+
+div#map_canvas { 
+	height: 250px; 
+	width: 250px; 
+	/* display: none; */
+}
+
+div.list_loc {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#searchResults {
+    font-family: Arial;
+    font-size: 11px;
+}
+
+#searchResults p.loc_name {
+    font-weight: bold;
+}
+
+input.rounded {
+	border: 1px solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 2px 2px 3px #666;
+	-webkit-box-shadow: 2px 2px 3px #666;
+	box-shadow: 2px 2px 3px #666;
+	font-size: 20px;
+	color: #444;
+	font-family: Arial;
+	padding: 4px 7px;
+	outline: 0;
+	-webkit-appearance: none;
+}
+
+input.rounded:focus {
+	border-color: #339933;
+}
+
+div.buttonholder {
+	display: none;
+}
