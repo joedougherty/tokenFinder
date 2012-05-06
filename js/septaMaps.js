@@ -14,7 +14,7 @@ function initialize() {
   var illadelph = [39.95, -75.16];
   var latlng = new google.maps.LatLng(illadelph[0], illadelph[1]);
   var myOptions = {
-    zoom: 11,
+    zoom: 17,
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
@@ -33,9 +33,9 @@ function codeAddress() {
       position: results[0].geometry.location
     });
 
-  var lat = results[0].geometry.location.Za;
-  var lon = results[0].geometry.location.$a;
-        
+  var lat = results[0].geometry.location.$a;
+  var lon = results[0].geometry.location.ab;
+
   var radius = '1';
   
   $.ajax({
@@ -44,26 +44,31 @@ function codeAddress() {
     
     success: function(data) {
     
-      $('div#searchResults').empty();
-      $('div#searchResults').hide();
+      $('div#search_results').empty();
+      $('div#search_results').hide();
     
       // console.log( lat, lon );
       $.each(data, function(i, item) {
+
+        // console.log(item);
        
-      if (item.sales_data != null) {
-    
-        resultsDiv = '<div class="list_loc">'        
-        resultsDiv += '<p class="loc_name">' + item.location_name + '</p>';
-        resultsDiv += '<p>' + item.sales_data.ADDRESS + '</p>';
-        resultsDiv += '<p>' + item.sales_data.HOURS + '</p>';
-        resultsDiv += '</div>';
+        if (item.sales_data != null) {
       
-        $('div#searchResults').append(resultsDiv);
-        $('div#searchResults').fadeIn();
-              
-      }        
-         
+          resultsDiv = '<div class="list_loc">'        
+          resultsDiv += '<p class="loc_name">' + item.location_name.replace(/"/g, '') + '</p>';
+          resultsDiv += '<p>' + item.sales_data.ADDRESS.replace(/"/g, '') + '</p>';
+          resultsDiv += '<p>Distance: ' + item.distance.replace(/"/g, '') + '</p>';
+          resultsDiv += '<p>' + item.sales_data.HOURS.replace(/"/g, '') + '</p>';
+          resultsDiv += '</div>';
+                
+        }
+
+        $('div#search_results').append(resultsDiv);
+
     });
+
+        $('div#map_overlay').css({ 'z-index' : '0' });
+        $('div#search_results').fadeIn();        
     
       }
     

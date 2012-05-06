@@ -1,21 +1,21 @@
 $(document).ready( function() {
 
-  $('input#address').keydown(function() {
+  $('input#address').keyup(function() {
     	
     if ( $('input#address').val().length > 0 ) {
      
+      $('div.buttonholder').slideDown();
       $('div.buttonholder').fadeIn();	
-	  // $('div.buttonholder').slideDown();
-	} else {
-	  $('div.buttonholder').fadeOut();
-	}
+	    
+	  } else {
+	     $('div.buttonholder').slideUp();
+      $('div.buttonholder').fadeOut();
+	  }
 
   });
 
   $('input#findatoken').click(function() {
-
-  	$('div#map_canvas').show();
-
+  	codeAddress();
   });
 
 });
