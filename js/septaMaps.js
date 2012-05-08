@@ -5,12 +5,6 @@ EX: 69th St. Terminal (MFL) Booth (location_id: 0).
 
 */
 
-function desc_dist( dist ) {
-
-  // a lookup table should go here
-  
-}
-
 var geocoder;
 var map;
 
