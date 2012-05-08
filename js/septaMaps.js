@@ -5,6 +5,12 @@ EX: 69th St. Terminal (MFL) Booth (location_id: 0).
 
 */
 
+function desc_dist( dist ) {
+
+  // a lookup table should go here
+  
+}
+
 var geocoder;
 var map;
 
@@ -14,7 +20,7 @@ function initialize() {
   var illadelph = [39.95, -75.16];
   var latlng = new google.maps.LatLng(illadelph[0], illadelph[1]);
   var myOptions = {
-    zoom: 17,
+    zoom: 18,
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
@@ -53,11 +59,15 @@ function codeAddress() {
         // console.log(item);
        
         if (item.sales_data != null) {
+
+          dist_to_loc = item.distance.replace(/"/g, '');
+          dist_to_loc = parseFloat( dist_to_loc );
+          dist_to_loc = dist_to_loc.toFixed(3);
       
           resultsDiv = '<div class="list_loc">'        
           resultsDiv += '<p class="loc_name">' + item.location_name.replace(/"/g, '') + '</p>';
           resultsDiv += '<p>' + item.sales_data.ADDRESS.replace(/"/g, '') + '</p>';
-          resultsDiv += '<p>Distance: ' + item.distance.replace(/"/g, '') + '</p>';
+          resultsDiv += '<p>' + dist_to_loc  + ' miles</p>';
           resultsDiv += '<p>' + item.sales_data.HOURS.replace(/"/g, '') + '</p>';
           resultsDiv += '</div>';
                 
