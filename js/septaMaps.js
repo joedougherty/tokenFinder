@@ -5,12 +5,6 @@ EX: 69th St. Terminal (MFL) Booth (location_id: 0).
 
 */
 
-function desc_dist( dist ) {
-
-  // a lookup table should go here
-  
-}
-
 var geocoder;
 var map;
 
@@ -57,20 +51,23 @@ function codeAddress() {
       $.each(data, function(i, item) {
 
         // console.log(item);
-       
-        if (item.sales_data != null) {
+        var resultsDiv;
+
+        if (item.location_data != null) {
 
           dist_to_loc = item.distance.replace(/"/g, '');
           dist_to_loc = parseFloat( dist_to_loc );
           dist_to_loc = dist_to_loc.toFixed(3);
-      
-          resultsDiv = '<div class="list_loc">'        
+
+          resultsDiv = '<div class="list_loc">';
           resultsDiv += '<p class="loc_name">' + item.location_name.replace(/"/g, '') + '</p>';
-          resultsDiv += '<p>' + item.sales_data.ADDRESS.replace(/"/g, '') + '</p>';
+          resultsDiv += '<p>' + item.location_data.address1.replace(/"/g, '') + '</p>';
           resultsDiv += '<p>' + dist_to_loc  + ' miles</p>';
-          resultsDiv += '<p>' + item.sales_data.HOURS.replace(/"/g, '') + '</p>';
+          resultsDiv += '<p>' + item.location_data.hours.replace(/"/g, '') + '</p>';
           resultsDiv += '</div>';
-                
+        
+          console.log(resultsDiv);
+
         }
 
         $('div#search_results').append(resultsDiv);
@@ -78,7 +75,7 @@ function codeAddress() {
     });
 
         $('div#map_overlay').css({ 'z-index' : '0' });
-        $('div#search_results').fadeIn();        
+        $('div#search_results').show();        
     
       }
     
