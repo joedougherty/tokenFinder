@@ -2,7 +2,7 @@ html, body {
 	height: 100%; 
 	margin: 0; 
 	padding: 0;
-	background-color:#fff; 
+	background-color:#ccc; 
 }
 
 div.outer_wrapper {
@@ -13,7 +13,9 @@ div.outer_wrapper {
 div.inner_wrapper {
 	width: 320px;
 	margin: 0 auto;
-	border: 3px solid #666;
+	border-top: 3px solid #000;
+	border-left: 3px solid #888;
+	border-right: 3px solid #888;
 	text-align: center;
 	background-color: #000;
 	height: auto;
@@ -46,16 +48,22 @@ div#map_canvas {
 div.list_loc {
     padding-top: 5px;
     margin-bottom: 5px;
+    padding-left: 20px;
+}
+
+#search_results_wrapper {
+  width: 100%;
 }
 
 #search_results {
     font-family: Arial;
-    font-size: 11px;
-    width: 250px;
+    font-size: 13px;
+    width: 85%;
     background-color: #fff;
     display: none;
     border-radius: 10px;
     margin: 0 auto;
+    text-align: left;
 }
 
 #search_results p.loc_name {
