@@ -33,8 +33,8 @@ function codeAddress() {
       position: results[0].geometry.location
     });
 
-  var lat = results[0].geometry.location.$a;
-  var lon = results[0].geometry.location.ab;
+  var lat = results[0].geometry.location.lat();
+  var lon = results[0].geometry.location.lng();
 
   var radius = '1';
   
