@@ -5,14 +5,40 @@
     <title>tokenFinder</title>
     <link href="css/token.css" rel="stylesheet" type="text/css">
     <script type="text/javascript"
-      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBFnBqpFpq4MA8YWbrb2ujJDHVg2VnXLI0&amp;sensor=false">
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAI-LkWtWzN5Dp2BAgSd6V8cy1XBBE_Wa0&sensor=false">
     </script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/libs/jquery-1.7.1.min.js"></script> 
     <script type="text/javascript" src="js/septaMaps.js"></script> 
     <script type="text/javascript" src="js/behavior.js"></script>    
+    <script type="text/javascript" src="js/libs/geo-min.js"></script> 
   </head>
   
-<body onload="initialize()">
+<body>
+
+  <script>
+
+  var we_have_permission = confirm("Mind if we try to determine your location?");
+    if ( we_have_permission ) {
+      if(geo_position_js.init()){
+        geo_position_js.getCurrentPosition(success_callback,error_callback,{enableHighAccuracy:true});
+      }
+      else{
+        alert("Functionality not available");
+      }
+
+      function success_callback(p)
+      {
+        alert('lat='+p.coords.latitude.toFixed(2)+';lon='+p.coords.longitude.toFixed(2));
+      }
+      
+      function error_callback(p)
+      {
+        alert('error='+p.code);
+      }   
+    } else {
+      alert("Okay - let's do this the old-fashioned way.");
+    }
+  </script>
 
   <div class="outer_wrapper">
     <div class="inner_wrapper">

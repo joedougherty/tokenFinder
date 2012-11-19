@@ -14,8 +14,9 @@ $(document).ready( function() {
 
   });
 
-  $('input#findatoken').click(function() {
+  $('#findatoken').click(function() {
   	codeAddress();
+    console.log('findatoken fired');
   });
 
 });

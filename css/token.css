@@ -60,7 +60,7 @@ div.list_loc {
     font-size: 13px;
     width: 85%;
     background-color: #fff;
-    display: none;
+    /display: none;
     border-radius: 10px;
     margin: 0 auto;
     text-align: left;
