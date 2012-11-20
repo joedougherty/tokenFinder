@@ -15,31 +15,6 @@
   
 <body>
 
-  <script>
-
-  var we_have_permission = confirm("Mind if we try to determine your location?");
-    if ( we_have_permission ) {
-      if(geo_position_js.init()){
-        geo_position_js.getCurrentPosition(success_callback,error_callback,{enableHighAccuracy:true});
-      }
-      else{
-        alert("Functionality not available");
-      }
-
-      function success_callback(p)
-      {
-        alert('lat='+p.coords.latitude.toFixed(2)+';lon='+p.coords.longitude.toFixed(2));
-      }
-      
-      function error_callback(p)
-      {
-        alert('error='+p.code);
-      }   
-    } else {
-      alert("Okay - let's do this the old-fashioned way.");
-    }
-  </script>
-
   <div class="outer_wrapper">
     <div class="inner_wrapper">
 

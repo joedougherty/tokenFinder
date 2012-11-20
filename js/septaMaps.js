@@ -1,46 +1,35 @@
 $(document).ready(function() {
-
-  var latitude;
-  var longitude; 
-  
-    if ( confirm("Mind if we try to determine your location?") ) {
+   
+  if ( confirm("Mind if we try to determine your location?") ) {
     
-      if (geo_position_js.init() ) {
-          geo_position_js.getCurrentPosition(success_callback,error_callback,{enableHighAccuracy:true});
-        } else{
-          alert("Functionality not available");
-        }
-
-        function success_callback(p) {
-          alert('lat='+p.coords.latitude.toFixed(2)+';lon='+p.coords.longitude.toFixed(2));
+    if (geo_position_js.init() ) {
+        var coordinates = geo_position_js.getCurrentPosition(success_callback,error_callback,{enableHighAccuracy:true});
           
-          latitude = p.coords.latitude.toFixed(2);
-          longitude = p.coords.longitude.toFixed(2);
-        }
+        console.log("coordinates returned from callback:" + coordinates);
+    } else {
+        alert("Sorry - functionality not available.");
+    }
+  }
+    
+  function success_callback(p) {
+    latitude  = p.coords.latitude.toFixed(2);
+    longitude = p.coords.longitude.toFixed(2);
+
+    console.log(p);
+
+    codeAddress(latitude, longitude);
+
+  }
         
-        function error_callback(p) {
-          alert('error='+p.code);
-        }   
-      }
-
-<<<<<<< HEAD
-  /* 
-
-  Several locations have null sales_date objects for some reason.
-  EX: 69th St. Terminal (MFL) Booth (location_id: 0).
-
-  */
-=======
-var geocoder;
-var map;
->>>>>>> 77b5bdd0409937d1e338acbbd7752a177cc7eb39
+  function error_callback(p) {
+    alert('error='+p.code);
+  }   
 
   var geocoder;
   var map;
 
   function initialize() {
 
-<<<<<<< HEAD
     geocoder = new google.maps.Geocoder;
     var illadelph = [39.95, -75.16];
     var latlng = new google.maps.LatLng(illadelph[0], illadelph[1]);
@@ -50,40 +39,13 @@ var map;
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
       map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
   }
-=======
-function codeAddress() {
-  
-  var address = document.getElementById("address").value;
-  geocoder.geocode( { 'address': address}, function(results, status) {
-  
-  if (status == google.maps.GeocoderStatus.OK) {
-    map.setCenter(results[0].geometry.location);
-    var marker = new google.maps.Marker({
-      map: map,
-      position: results[0].geometry.location
-    });
 
-  var lat = results[0].geometry.location.lat();
-  var lon = results[0].geometry.location.lng();
->>>>>>> 77b5bdd0409937d1e338acbbd7752a177cc7eb39
+  function codeAddress(lat, lon) {
 
-  function codeAddress() {
-    
-    var address = $('#address').val();
-    console.log(address);
-
-    geocoder.geocode( { 'address': address}, function(results, status) {
-    
-    if (status == google.maps.GeocoderStatus.OK) {
-      map.setCenter(results[0].geometry.location);
-      var marker = new google.maps.Marker({
-        map: map,
-        position: results[0].geometry.location
-      });
-
-      var lat = results[0].geometry.location.lat();
-      var lon = results[0].geometry.location.lng();
+    console.log("lat: "+ lat);
+    console.log("lon: "+ lon);
 
     var radius = '1';
     
@@ -111,27 +73,21 @@ function codeAddress() {
             resultsDiv += '<p>' + item.location_data.hours.replace(/"/g, '') + '</p>';
             resultsDiv += '</div>';
           
-            console.log(resultsDiv);
+            // console.log(resultsDiv);
 
           }
 
           $('div#search_results').append(resultsDiv);
 
-      });
+        });
 
           $('div#map_overlay').css({ 'z-index' : '0' });
           $('div#search_results').show();        
       
-        }
-      
-      });
-          
-        } else {
-          // alert("Geocode was not successful for the following reason: " + status);
-          alert("Something went wrong. Please enter you address again.");
-        }
+      }
 
-      });
-  }
+    });
+  
+  } // End of codeAddress()
 
 });
