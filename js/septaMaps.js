@@ -23,18 +23,24 @@ $(document).ready(function() {
         }   
       }
 
+<<<<<<< HEAD
   /* 
 
   Several locations have null sales_date objects for some reason.
   EX: 69th St. Terminal (MFL) Booth (location_id: 0).
 
   */
+=======
+var geocoder;
+var map;
+>>>>>>> 77b5bdd0409937d1e338acbbd7752a177cc7eb39
 
   var geocoder;
   var map;
 
   function initialize() {
 
+<<<<<<< HEAD
     geocoder = new google.maps.Geocoder;
     var illadelph = [39.95, -75.16];
     var latlng = new google.maps.LatLng(illadelph[0], illadelph[1]);
@@ -45,6 +51,22 @@ $(document).ready(function() {
     }
       map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
   }
+=======
+function codeAddress() {
+  
+  var address = document.getElementById("address").value;
+  geocoder.geocode( { 'address': address}, function(results, status) {
+  
+  if (status == google.maps.GeocoderStatus.OK) {
+    map.setCenter(results[0].geometry.location);
+    var marker = new google.maps.Marker({
+      map: map,
+      position: results[0].geometry.location
+    });
+
+  var lat = results[0].geometry.location.lat();
+  var lon = results[0].geometry.location.lng();
+>>>>>>> 77b5bdd0409937d1e338acbbd7752a177cc7eb39
 
   function codeAddress() {
     
