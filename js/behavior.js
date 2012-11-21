@@ -42,7 +42,7 @@ $(document).ready( function() {
 
   $('#findatoken').click(function() {
   	initialize();
-    codeAddress();
+    gmapsGeolocate();
   });
 
 });
