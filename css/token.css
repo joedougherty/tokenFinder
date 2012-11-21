@@ -5,12 +5,12 @@ html, body {
 	background-color:#000; 
 }
 
-div.outer_wrapper {
+.outer_wrapper {
 	width: 100%;
 	height: 100%;
 }
 
-div.inner_wrapper {
+.inner_wrapper {
 	width: 320px;
 	margin: 0 auto;
 	text-align: center;
@@ -18,15 +18,25 @@ div.inner_wrapper {
 	height: auto;
 }
 
-div#where_you_at h1 {
+#where_you_at h1 {
 	color: #fff;
 	size: 20px;
 	font-family: Arial;
 	margin-bottom: 2px;
 	margin-top: 2px;
-}   
+}
 
-div#map_overlay {
+.autotrack button {
+	font-family: Verdana. sans;
+	font-size: 16px;
+}
+
+.autotrack em {
+	font-size: 20px;
+	color: #fff;
+}
+
+#map_overlay {
 	position: relative;
 	background-color: #000;
 	z-index: -1;
@@ -35,14 +45,14 @@ div#map_overlay {
 	margin: 0 auto;
 }
 
-div#map_canvas { 
+#map_canvas { 
 	height: 250px; 
 	width: 250px;
 	margin-top: 10px; 
 	margin: 0 auto;
 }
 
-div.list_loc {
+.list_loc {
     padding-top: 5px;
     margin-bottom: 5px;
     padding-left: 20px;
