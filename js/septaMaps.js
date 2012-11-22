@@ -2,21 +2,29 @@ function success_callback(p) {
   latitude  = p.coords.latitude.toFixed(2);
   longitude = p.coords.longitude.toFixed(2);
 
+  initialize([latitude, longitude]);
   codeAddress(latitude, longitude);
 }
       
 function error_callback(p) {
   alert('error='+p.code);
+  alert('error='+p.message);
 }   
 
 var geocoder;
 var map;
 
-function initialize() {
+function initialize(coordArray) {
+
+  if (arguments[0] == undefined) {
+    var coords = [39.95, -75.16];
+  } else {
+    var coords = coordArray;
+  }
 
   geocoder = new google.maps.Geocoder;
-  var illadelph = [39.95, -75.16];
-  var latlng = new google.maps.LatLng(illadelph[0], illadelph[1]);
+  
+  var latlng = new google.maps.LatLng(coords[0], coords[1]);
   var myOptions = {
     zoom: 18,
     center: latlng,
@@ -27,32 +35,34 @@ function initialize() {
 }
 
 function gmapsGeolocate() {
-  var address = document.getElementById("address").value;
-  geocoder.geocode( { 'address': address}, function(results, status) {
+
+  var address = $("#address").val();
   
-  if (status == google.maps.GeocoderStatus.OK) {
-    map.setCenter(results[0].geometry.location);
-    var marker = new google.maps.Marker({
-      map: map,
-      position: results[0].geometry.location
+  geocoder.geocode( {'address': address}, function(results, status) {
+  
+    if (status == google.maps.GeocoderStatus.OK) {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+        map: map,
+        position: results[0].geometry.location
     });
 
-  var coordinates = [];
+    var coordinates = [];
 
-  coordinates[0] = results[0].geometry.location.lat();
-  coordinates[1] = results[0].geometry.location.lng();
+    coordinates[0] = results[0].geometry.location.lat();
+    coordinates[1] = results[0].geometry.location.lng();
 
-  codeAddress(coordinates[0], coordinates[1]);
+    codeAddress(coordinates[0], coordinates[1]);
 
-  }
+    }
 
   });
+
 }
 
 function codeAddress(lat, lon) {
 
-  console.log(arguments[0]);
-  console.log(arguments[1]);
+  $('div#search_results').empty();  
 
   var radius = '1';
   

@@ -27,13 +27,17 @@ html, body {
 }
 
 .autotrack button {
-	font-family: Verdana. sans;
+	font-family: Arial. sans;
 	font-size: 16px;
 }
 
 .autotrack em {
 	font-size: 20px;
 	color: #fff;
+}
+
+.autotrack p {
+	margin: 0.5em;
 }
 
 #map_overlay {
@@ -98,6 +102,7 @@ input.rounded {
 	padding: 4px 7px;
 	outline: 0;
 	-webkit-appearance: none;
+	width: 93%;
 }
 
 input.rounded:focus {
@@ -106,6 +111,10 @@ input.rounded:focus {
 
 div.buttonholder {
 	width: 160px;
-	margin: 0 auto;
+	margin: 0.5em auto;
 	display: none;
+}
+
+#findatoken {
+	font-size: 16px;
 }
