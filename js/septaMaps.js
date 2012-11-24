@@ -68,7 +68,6 @@ function gmapsGeolocate() {
 }
 
 function codeAddress(lat, lon) {
-
   $('div#search_results').empty();  
 
   var radius = '1';
@@ -76,10 +75,6 @@ function codeAddress(lat, lon) {
   $.ajax({
     url: "http://www3.septa.org/hackathon/locations/get_locations.php?lon=" + lon + "&lat=" + lat + "&type=sales_locations&radius=" + radius + "&callback=?",
     dataType: "jsonp",
-    beforeSend: function(data) {
-      $("#map_overlay").css({ 'z-index' : '0' });
-      $("#loading_img").show();
-    },
     success: function(data) {
       if (data.length == 0) {
         alert('Could not find any tokens within a mile.');
@@ -104,12 +99,13 @@ function codeAddress(lat, lon) {
 
           }
 
-          $('div#search_results').append(resultsDiv);
+          $('#search_results').append(resultsDiv);
 
         });
 
-          $('div#map_overlay').css({ 'z-index' : '0' });
-          $('div#search_results').show();
+          $('#map_overlay').css({ 'z-index' : '0' });
+          $('#search_results').show();
+          $('#scroll_message').show();
       }
     
     },

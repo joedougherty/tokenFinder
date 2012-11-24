@@ -15,6 +15,10 @@ $(document).ready( function() {
   });
 
   $('.autotrack button').click(function() {
+    $("#map_overlay").css({ 'z-index' : '0' });
+    $("#loading_img").show();
+    $("#scroll_message").hide();
+    
     if ( confirm("Mind if we try to determine your location?") ) {
     
       if (geo_position_js.init() ) {
@@ -34,7 +38,7 @@ $(document).ready( function() {
       $('div.buttonholder').fadeIn();	
 	    
 	  } else {
-	     $('div.buttonholder').slideUp();
+	    $('div.buttonholder').slideUp();
       $('div.buttonholder').fadeOut();
 	  }
 
@@ -43,7 +47,8 @@ $(document).ready( function() {
   $('#findatoken').click(function() {
     $("#map_overlay").css({ 'z-index' : '0' });
     $("#loading_img").show();
-  	
+    $("#scroll_message").hide(); 
+
     initialize();
     gmapsGeolocate();
   });
