@@ -7,8 +7,7 @@ function success_callback(p) {
 }
       
 function error_callback(p) {
-  alert('error='+p.code);
-  alert('error='+p.message);
+  alert("Sorry - we weren't able to find you!\n\nAre you sure you have location tracking enabled on your device?");
 }   
 
 var geocoder;
@@ -30,30 +29,38 @@ function initialize(coordArray) {
     center: latlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
-    map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+    
+  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
+  var myLatlng = new google.maps.LatLng(coords[0], coords[1]);
+    
+  var marker = new google.maps.Marker({
+      map: map,
+      position: myLatlng
+  });
+  
 }
 
 function gmapsGeolocate() {
 
   var address = $("#address").val();
   
-  geocoder.geocode( {'address': address}, function(results, status) {
+  geocoder.geocode({'address': address}, function(results, status) {
   
     if (status == google.maps.GeocoderStatus.OK) {
       map.setCenter(results[0].geometry.location);
+
       var marker = new google.maps.Marker({
         map: map,
         position: results[0].geometry.location
-    });
+      });
 
-    var coordinates = [];
+      var coordinates = [];
 
-    coordinates[0] = results[0].geometry.location.lat();
-    coordinates[1] = results[0].geometry.location.lng();
+      coordinates[0] = results[0].geometry.location.lat();
+      coordinates[1] = results[0].geometry.location.lng();
 
-    codeAddress(coordinates[0], coordinates[1]);
-
+      codeAddress(coordinates[0], coordinates[1]);
     }
 
   });
@@ -69,35 +76,49 @@ function codeAddress(lat, lon) {
   $.ajax({
     url: "http://www3.septa.org/hackathon/locations/get_locations.php?lon=" + lon + "&lat=" + lat + "&type=sales_locations&radius=" + radius + "&callback=?",
     dataType: "jsonp",
-    
+    beforeSend: function(data) {
+      $("#map_overlay").css({ 'z-index' : '0' });
+      $("#loading_img").show();
+    },
     success: function(data) {
    
-      $.each(data, function(i, item) {
+      console.log('request is running');
 
-        var resultsDiv;
+      if (data.length == 0) {
+        alert('Could not find any tokens within a mile.');
+      } else {
+       
+        $.each(data, function(i, item) {
 
-        if (item.location_data != null) {
+          var resultsDiv;
 
-          dist_to_loc = item.distance.replace(/"/g, '');
-          dist_to_loc = parseFloat( dist_to_loc );
-          dist_to_loc = dist_to_loc.toFixed(3);
+          if (item.location_data != null) {
 
-          resultsDiv = '<div class="list_loc">';
-          resultsDiv += '<p class="loc_name">' + item.location_name.replace(/"/g, '') + '</p>';
-          resultsDiv += '<p>' + item.location_data.address1.replace(/"/g, '') + '</p>';
-          resultsDiv += '<p>' + dist_to_loc  + ' miles</p>';
-          resultsDiv += '<p>' + item.location_data.hours.replace(/"/g, '') + '</p>';
-          resultsDiv += '</div>';
+            dist_to_loc = item.distance.replace(/"/g, '');
+            dist_to_loc = parseFloat( dist_to_loc );
+            dist_to_loc = dist_to_loc.toFixed(3);
 
-        }
+            resultsDiv = '<div class="list_loc">';
+            resultsDiv += '<p class="loc_name">' + item.location_name.replace(/"/g, '') + '</p>';
+            resultsDiv += '<p>' + item.location_data.address1.replace(/"/g, '') + '</p>';
+            resultsDiv += '<p>' + dist_to_loc  + ' miles</p>';
+            resultsDiv += '<p>' + item.location_data.hours.replace(/"/g, '') + '</p>';
+            resultsDiv += '</div>';
 
-        $('div#search_results').append(resultsDiv);
+          }
 
-      });
+          $('div#search_results').append(resultsDiv);
 
-        $('div#map_overlay').css({ 'z-index' : '0' });
-        $('div#search_results').show();        
+        });
+
+          $('div#map_overlay').css({ 'z-index' : '0' });
+          $('div#search_results').show();
+      }
     
+    },
+    complete: function(data) {
+      $("#loading_img").hide();
+      console.log('request complete');
     }
 
   });

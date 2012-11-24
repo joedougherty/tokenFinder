@@ -28,7 +28,7 @@ html, body {
 
 .autotrack button {
 	font-family: Arial. sans;
-	font-size: 16px;
+	font-size: 1em;
 }
 
 .autotrack em {
@@ -68,7 +68,7 @@ html, body {
 
 #search_results {
     font-family: Arial;
-    font-size: 13px;
+    font-size: 14px;
     width: 85%;
     background-color: #fff;
     display: none;
