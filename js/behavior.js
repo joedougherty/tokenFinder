@@ -26,6 +26,8 @@ $(document).ready( function() {
       } else {
           alert("Sorry - functionality not available.");
       }
+    } else {
+      $("#loading_img").hide();
     }
 
   });
