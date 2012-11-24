@@ -8,6 +8,7 @@ function success_callback(p) {
       
 function error_callback(p) {
   alert("Sorry - we weren't able to find you!\n\nAre you sure you have location tracking enabled on your device?");
+  $("#loading_img").hide();
 }   
 
 var geocoder;
