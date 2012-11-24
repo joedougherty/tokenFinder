@@ -81,9 +81,6 @@ function codeAddress(lat, lon) {
       $("#loading_img").show();
     },
     success: function(data) {
-   
-      console.log('request is running');
-
       if (data.length == 0) {
         alert('Could not find any tokens within a mile.');
       } else {
@@ -118,7 +115,6 @@ function codeAddress(lat, lon) {
     },
     complete: function(data) {
       $("#loading_img").hide();
-      console.log('request complete');
     }
 
   });

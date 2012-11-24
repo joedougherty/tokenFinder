@@ -41,8 +41,10 @@ $(document).ready( function() {
   });
 
   $('#findatoken').click(function() {
-    // console.log('clicked');
-  	initialize();
+    $("#map_overlay").css({ 'z-index' : '0' });
+    $("#loading_img").show();
+  	
+    initialize();
     gmapsGeolocate();
   });
 
