@@ -70,7 +70,12 @@ function gmapsGeolocate() {
 function codeAddress(lat, lon) {
   $('div#search_results').empty();  
 
-  var radius = '1';
+  // Set default radius if no r arg is passed in to codeAddress
+  if (arguments[2] == undefined) { 
+    var radius = '1';
+  } else {
+    var radius = arguments[2];
+  }
   
   $.ajax({
     url: "http://www3.septa.org/hackathon/locations/get_locations.php?lon=" + lon + "&lat=" + lat + "&type=sales_locations&radius=" + radius + "&callback=?",

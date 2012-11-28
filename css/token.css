@@ -126,5 +126,39 @@ div.buttonholder {
 }
 
 #findatoken {
-	font-size: 16px;
+	font-size: 1.1em;
+}
+
+#dialog-form {
+	border: 1px solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 2px 2px 3px #666;
+	-webkit-box-shadow: 2px 2px 3px #666;
+	box-shadow: 2px 2px 3px #666;
+	background-color: #ccc;
+}
+
+#dialog-form form {
+	text-align: center;
+	margin-top: 70px;
+}
+
+#dialog-form form input {
+	text-align: center;
+}
+
+.radius_select {
+	width: 130px;
+	/* height: 75px; */
+	font-family: Verdana;
+	font-size: 1.5em;
+	border: 1px solid #ccc;	
+	box-shadow: 2px 2px 3px #666;
+}
+
+.ui-dialog-buttonpane {
+	margin-top: -50px;
+    text-align: center;
 }
