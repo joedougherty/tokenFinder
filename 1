@@ -20,19 +20,17 @@ $(document).ready( function() {
     $("#scroll_message").hide();
     
     if ( confirm("Mind if we try to determine your location?") ) {
-      if ( geo_position_js.init() ) {
+      if (geo_position_js.init() ) {
           geo_position_js.getCurrentPosition(success_callback, error_callback, {enableHighAccuracy:true});
       } else {
           alert("Sorry - functionality not available.");
       }
-    } else {
-        $("#loading_img").hide();
     }
 
   });
 
   $('input#address').keyup(function() {
-    // If there's > 0 char in the input, show the submit button
+    // If there's >= 1 char in the input, show the submit button
     // otherwise keep it hidden	
     if ( $('input#address').val().length > 0 ) {
      
@@ -45,12 +43,6 @@ $(document).ready( function() {
 	  }
 
   });
-
-  /**
-   * Generate the drop-down menu 
-   * for the user to select a radius
-   * greater than 1 mile
-   */
 
   var selectMenu = '';
 
@@ -67,14 +59,6 @@ $(document).ready( function() {
   }
 
   $('select.radius_select').append( selectMenu );
-
-  /**
-   * Set the selected radius value in the DOM so we can
-   * retrieve it in codeAddress() if need be
-   */
-
-
-   
 
   $('#findatoken').click(function() {
     $("#map_overlay").css({ 'z-index' : '0' });

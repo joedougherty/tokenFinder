@@ -70,12 +70,8 @@ function gmapsGeolocate() {
 function codeAddress(lat, lon) {
   $('div#search_results').empty();  
 
-  // Set default radius if no r arg is passed in to codeAddress
-  if (arguments[2] == undefined) { 
-    var radius = '1';
-  } else {
-    var radius = arguments[2];
-  }
+  var radius = $("select.radius_select").val();
+  // console.log( "codeAddress radius: " + radius);
   
   $.ajax({
     url: "http://www3.septa.org/hackathon/locations/get_locations.php?lon=" + lon + "&lat=" + lat + "&type=sales_locations&radius=" + radius + "&callback=?",
@@ -109,7 +105,7 @@ function codeAddress(lat, lon) {
         });
 
           $('#map_overlay').css({ 'z-index' : '0' });
-          $('#search_results').show();
+          $('#search_results_wrapper').show();
           $('#scroll_message').show();
       }
     
