@@ -1,0 +1,139 @@
+html, body { 
+	height: 100%; 
+	margin: 0; 
+	padding: 0;
+	background-color:#000; 
+}
+
+.outer_wrapper {
+	width: 100%;
+	height: 100%;
+}
+
+.inner_wrapper {
+	width: 320px;
+	margin: 0 auto;
+	text-align: center;
+	background-color: #000;
+	height: auto;
+}
+
+#where_you_at h1 {
+	color: #fff;
+	size: 20px;
+	font-family: Arial;
+	margin-bottom: 2px;
+	margin-top: 2px;
+}
+
+.autotrack button {
+	font-family: 'Arial', sans;
+	font-size: 1.1em;
+}
+
+.autotrack em {
+	font-size: 20px;
+	color: #fff;
+}
+
+.autotrack p {
+	margin: 0.5em;
+}
+
+#map_overlay {
+	position: relative;
+	background-color: #000;
+	z-index: -1;
+	width: 320px;
+	height: 260px;
+	margin: 0 auto;
+}
+
+#scroll_message {
+	font-family: 'Arial', sans;
+	font-size: 1em;
+	color: #fff;
+	font-weight: bold;
+	display: none;
+}
+
+#map_canvas { 
+	height: 250px; 
+	width: 250px;
+	margin-top: 10px; 
+	margin: 0 auto;
+}
+
+.list_loc {
+    padding-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+}
+
+#search_results_wrapper {
+  width: 100%;
+  margin: 1em 0 0 0;
+  padding: 0 0 .5em 0;
+  display: none;
+}
+
+#search_results {
+    font-family: Arial;
+    font-size: 14px;
+    width: 95%;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#search_results p.loc_name {
+    font-weight: bold;
+    margin:0;
+    padding:0;
+}
+
+#search_results p {	
+    margin:0;
+    padding:0;
+}
+
+input.rounded {
+	border: 1px solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 2px 2px 3px #666;
+	-webkit-box-shadow: 2px 2px 3px #666;
+	box-shadow: 2px 2px 3px #666;
+	font-size: 20px;
+	color: #444;
+	font-family: Arial;
+	padding: 4px 7px;
+	outline: 0;
+	-webkit-appearance: none;
+	width: 93%;
+}
+
+input.rounded:focus {
+	border-color: #339933;
+}
+
+div.buttonholder {
+	width: 160px;
+	margin: 0.5em auto;
+	display: none;
+}
+
+#findatoken {
+	font-size: 1.1em;
+}
+
+.radius_select {
+	width: 130px;
+	/* height: 75px; */
+	font-family: Verdana;
+	font-size: 1.5em;
+	border: 1px solid #ccc;	
+	box-shadow: 2px 2px 3px #666;
+}
