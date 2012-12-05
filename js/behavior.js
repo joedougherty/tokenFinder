@@ -56,13 +56,7 @@ $(document).ready( function() {
 
   for (var x=2; x<11; x++) {
     var val = x/2;
-
-    if (x == 2) {
-        var m = 'mile';
-    } else {
-        var m = 'miles';
-    }
-
+    var m = (x == 2) ? "mile" : "miles";
     selectMenu += '<option value="'+ val +'">'+ val +' '+ m +'</option>';
   }
 
@@ -73,9 +67,32 @@ $(document).ready( function() {
    * retrieve it in codeAddress() if need be
    */
 
+  $('.refresh_list').click(function() {
+    // Get miles val
+    var miles_radius = $('.radius_select').val();
+    console.log( miles_radius );
 
+    /**
+     * codeAddress() stores lat/lon vals 
+     * here every time it's run  
+     */
+    
+    // Pull these cached vals from DOM
+    var lat = $('#cached_lat').val(); 
+    var lon = $('#cached_lon').val();
+
+    $('#search_results').hide();
+    
+    codeAddress( lat, lon );
+    
+    $('#search_results').show();
+ 
+    /* Prevent page from reloading */
+    preventDefault();
+    return false;
+  
+  });
    
-
   $('#findatoken').click(function() {
     $("#map_overlay").css({ 'z-index' : '0' });
     $("#loading_img").show();

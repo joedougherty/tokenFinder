@@ -70,8 +70,12 @@ function gmapsGeolocate() {
 function codeAddress(lat, lon) {
   $('div#search_results').empty();  
 
+  /* Cache these vals just in case the user refreshes the results  */
+  $('#cached_lat').val( lat );
+  $('#cached_lon').val( lon );
+
   var radius = $("select.radius_select").val();
-  // console.log( "codeAddress radius: " + radius);
+  console.log( "codeAddress radius: " + radius);
   
   $.ajax({
     url: "http://www3.septa.org/hackathon/locations/get_locations.php?lon=" + lon + "&lat=" + lat + "&type=sales_locations&radius=" + radius + "&callback=?",
@@ -104,6 +108,7 @@ function codeAddress(lat, lon) {
 
         });
 
+          $('#search_results').prepend( "<div class='locations_found'><p>" + data.length + " locations found.</p></div>" );
           $('#map_overlay').css({ 'z-index' : '0' });
           $('#search_results_wrapper').show();
           $('#scroll_message').show();
