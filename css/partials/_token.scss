@@ -21,14 +21,14 @@ html, body {
 #where_you_at h1 {
 	color: #fff;
 	font-size: 20px;
-	font-family: Arial;
+	font-family: $defaultFont;
     margin: 2px 0;
 }
 
 .autotrack {
     
     button {
-	    font-family: 'Arial', sans;
+	    font-family: $defaultFont;
 	    font-size: 1.1em;
     }
     
@@ -82,7 +82,7 @@ html, body {
   .within {
     
     span {
-        font-family: Verdana;
+        font-family: $defaultFont;
         font-size: 1.2em;
         color: #fff;
     }
@@ -92,7 +92,7 @@ html, body {
 }
 
 #search_results {
-    padding-top: .1em
+    padding-top: .1em;
     font-family: Arial;
     font-size: 14px;
     width: 95%;
@@ -141,14 +141,14 @@ div.buttonholder {
 .radius_select {
 	width: 140px;
 	/* height: 75px; */
-	font-family: Verdana;
+	font-family: $defaultFont;
 	font-size: 1.5em;
 	border: 1px solid #ccc;	
 	box-shadow: 2px 2px 3px #666;
 }
 
 .refresh_list {
-    font-family: Verdana;
+    font-family: $defaultFont;
     font-size: 1.5em;
 }
 

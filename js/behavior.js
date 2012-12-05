@@ -67,7 +67,11 @@ $(document).ready( function() {
    * retrieve it in codeAddress() if need be
    */
 
-  $('.refresh_list').click(function() {
+  $('.refresh_list').click(function(event) {
+    
+    /* Prevent page from reloading */
+    event.preventDefault();
+    
     // Get miles val
     var miles_radius = $('.radius_select').val();
     console.log( miles_radius );
@@ -86,10 +90,6 @@ $(document).ready( function() {
     codeAddress( lat, lon );
     
     $('#search_results').show();
- 
-    /* Prevent page from reloading */
-    preventDefault();
-    return false;
   
   });
    
