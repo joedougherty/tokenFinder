@@ -20,24 +20,27 @@ html, body {
 
 #where_you_at h1 {
 	color: #fff;
-	size: 20px;
-	font-family: Arial;
-	margin-bottom: 2px;
-	margin-top: 2px;
-}
-
-.autotrack button {
-	font-family: 'Arial', sans;
-	font-size: 1.1em;
-}
-
-.autotrack em {
 	font-size: 20px;
-	color: #fff;
+	font-family: Arial;
+    margin: 2px 0;
 }
 
-.autotrack p {
-	margin: 0.5em;
+.autotrack {
+    
+    button {
+	    font-family: 'Arial', sans;
+	    font-size: 1.1em;
+    }
+    
+    em {
+	    font-size: 20px;
+	    color: #fff;
+    }
+
+    p {
+	    margin: 0.5em;
+    }
+
 }
 
 #map_overlay {
@@ -65,9 +68,8 @@ html, body {
 }
 
 .list_loc {
-    padding-top: 5px;
+    padding: 5px 0 0 20px;
     margin-bottom: 5px;
-    padding-left: 20px;
 }
 
 #search_results_wrapper {
@@ -82,7 +84,7 @@ html, body {
     font-size: 14px;
     width: 95%;
     background-color: #fff;
-    border-radius: 10px;
+    @include border-radius(10px);
     margin: 0 auto;
     text-align: left;
 }
@@ -100,23 +102,17 @@ html, body {
 
 input.rounded {
 	border: 1px solid #ccc;
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-	-moz-box-shadow: 2px 2px 3px #666;
-	-webkit-box-shadow: 2px 2px 3px #666;
+    @include border-radius(10px);
 	box-shadow: 2px 2px 3px #666;
 	font-size: 20px;
 	color: #444;
 	font-family: Arial;
 	padding: 4px 7px;
-	outline: 0;
-	-webkit-appearance: none;
 	width: 93%;
 }
 
 input.rounded:focus {
-	border-color: #339933;
+	border-color: $greenBorder;
 }
 
 div.buttonholder {
@@ -130,10 +126,15 @@ div.buttonholder {
 }
 
 .radius_select {
-	width: 130px;
+	width: 140px;
 	/* height: 75px; */
 	font-family: Verdana;
 	font-size: 1.5em;
 	border: 1px solid #ccc;	
 	box-shadow: 2px 2px 3px #666;
+}
+
+.refresh_list {
+    font-family: Verdana;
+    font-size: 1.5em;
 }
