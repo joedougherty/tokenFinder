@@ -45,7 +45,11 @@ function initialize(coordArray) {
 function gmapsGeolocate() {
 
   var address = $("#address").val();
-  
+
+  // Tack on the city just in case 
+  // the user doesn't to specify
+  address = address + " philadelphia, pa";
+   
   geocoder.geocode({'address': address}, function(results, status) {
   
     if (status == google.maps.GeocoderStatus.OK) {
