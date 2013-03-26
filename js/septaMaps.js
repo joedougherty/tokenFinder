@@ -105,6 +105,7 @@ function codeAddress(lat, lon) {
             resultsDiv += '<p>' + item.location_data.address1.replace(/"/g, '') + '</p>';
             resultsDiv += '<p>' + dist_to_loc  + ' miles</p>';
             resultsDiv += '<p>' + item.location_data.hours.replace(/"/g, '') + '</p>';
+            resultsDiv += '<div class="toDirections">&gt;</div>';
             resultsDiv += '</div>';
 
           }

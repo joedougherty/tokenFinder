@@ -70,11 +70,10 @@ $(document).ready( function() {
   $('.refresh_list').click(function(event) {
     
     /* Prevent page from reloading */
-    event.preventDefault();
-    
+    event.stopImmediatePropagation();
+
     // Get miles val
     var miles_radius = $('.radius_select').val();
-    console.log( miles_radius );
 
     /**
      * codeAddress() stores lat/lon vals 
@@ -90,7 +89,7 @@ $(document).ready( function() {
     codeAddress( lat, lon );
     
     $('#search_results').show();
-  
+    return false; 
   });
    
   $('#findatoken').click(function() {
