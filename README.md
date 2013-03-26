@@ -3,7 +3,7 @@
 
 tokenFinder is a mobile-friendly site that does precisely one thing: tells you where you can find Septa tokens (within a mile).
 
-A functional prototype can be found at [http://tokenfinder.contextdevel.com] (http://tokenfinder.contextdevel.com). Hosting graciously provided by my employer, [Context, LLC] (http://www.contextllc.com).
+Live version can be found at [http://tokenfinder.org] (http://www.tokenfinder.org).
 
 Septa token locations are pulled from the excellent [Septa API] (http://www3.septa.org/hackathon/).
 
