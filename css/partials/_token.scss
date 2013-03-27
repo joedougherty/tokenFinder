@@ -169,3 +169,9 @@ div.buttonholder {
     margin: 0 auto;
     margin-top: .3em;
 }
+
+#directionsPanel {
+    @extend #search_results_wrapper;
+    background-color: #fff;
+    display: block;
+}

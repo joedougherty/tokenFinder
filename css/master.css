@@ -150,14 +150,14 @@ html, body {
 }
 
 /* line 79, partials/_token.scss */
-#search_results_wrapper {
+#search_results_wrapper, #directionsPanel {
   width: 100%;
   margin: 1em 0 0 0;
   padding: 0 0 .5em 0;
   display: none;
 }
 /* line 87, partials/_token.scss */
-#search_results_wrapper .within span {
+#search_results_wrapper .within span, #directionsPanel .within span {
   font-family: Verdana;
   font-size: 1.2em;
   color: #fff;
@@ -256,4 +256,10 @@ div.buttonholder {
   text-align: center;
   margin: 0 auto;
   margin-top: .3em;
+}
+
+/* line 173, partials/_token.scss */
+#directionsPanel {
+  background-color: #fff;
+  display: block;
 }
