@@ -72,6 +72,38 @@ function gmapsGeolocate() {
 
 }
 
+function directions_calcRoute(origin, destination) {
+  var directionsDisplay;
+  var directionsService = new google.maps.DirectionsService();
+  var walking = google.maps.TravelMode.WALKING;
+
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  var origin = new google.maps.LatLng(origin[0], origin[1]);
+  var destination = new google.maps.LatLng(destination[0], destination[1]);
+
+  var request = {
+    origin: origin,
+    destination: destination,
+    travelMode: walking
+  };
+
+  var mapOptions = {
+    zoom: 22,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    center: origin
+  };
+
+  directionsService.route(request, function(result, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(result);
+    }
+  });
+
+  map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+  directionsDisplay.setMap(map);
+  directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+}
+
 function codeAddress(lat, lon) {
   $('div#search_results').empty();  
 
@@ -80,7 +112,6 @@ function codeAddress(lat, lon) {
   $('#cached_lon').val( lon );
 
   var radius = $("select.radius_select").val();
-  console.log( "codeAddress radius: " + radius);
   
   $.ajax({
     url: "http://www3.septa.org/hackathon/locations/get_locations.php?lon=" + lon + "&lat=" + lat + "&type=sales_locations&radius=" + radius + "&callback=?",
@@ -105,7 +136,10 @@ function codeAddress(lat, lon) {
             resultsDiv += '<p>' + item.location_data.address1.replace(/"/g, '') + '</p>';
             resultsDiv += '<p>' + dist_to_loc  + ' miles</p>';
             resultsDiv += '<p>' + item.location_data.hours.replace(/"/g, '') + '</p>';
-            resultsDiv += '<div class="toDirections">&gt;</div>';
+            resultsDiv += '<div class="toDirections">&gt;';
+            resultsDiv += '<div class="loc_lat">' + item.location_lat + '</div>';
+            resultsDiv += '<div class="loc_lon">' + item.location_lon + '</div>';
+            resultsDiv += '</div>';
             resultsDiv += '</div>';
 
           }

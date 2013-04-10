@@ -52,6 +52,8 @@ html, body {
 	margin: 0 auto;
 }
 
+.loc_lat, .loc_lon { display: none; }
+
 #scroll_message {
 	font-family: 'Arial', sans;
 	font-size: 1.1em;

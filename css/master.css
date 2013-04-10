@@ -1,5 +1,5 @@
 /* Compass mixins */
-/* line 17, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../.rvm/gems/ruby-1.8.7-p358/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -21,45 +21,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../.rvm/gems/ruby-1.8.7-p358/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../.rvm/gems/ruby-1.8.7-p358/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../.rvm/gems/ruby-1.8.7-p358/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../.rvm/gems/ruby-1.8.7-p358/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../.rvm/gems/ruby-1.8.7-p358/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../.rvm/gems/ruby-1.8.7-p358/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../.rvm/gems/ruby-1.8.7-p358/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../.rvm/gems/ruby-1.9.3-p194/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../.rvm/gems/ruby-1.8.7-p358/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
@@ -123,6 +123,11 @@ html, body {
 }
 
 /* line 55, partials/_token.scss */
+.loc_lat, .loc_lon {
+  display: none;
+}
+
+/* line 57, partials/_token.scss */
 #scroll_message {
   font-family: 'Arial', sans;
   font-size: 1.1em;
@@ -132,7 +137,7 @@ html, body {
   display: none;
 }
 
-/* line 64, partials/_token.scss */
+/* line 66, partials/_token.scss */
 #map_canvas {
   height: 250px;
   width: 250px;
@@ -140,7 +145,7 @@ html, body {
   margin: 0 auto;
 }
 
-/* line 71, partials/_token.scss */
+/* line 73, partials/_token.scss */
 .list_loc {
   width: 90%;
   margin: 0 auto;
@@ -149,21 +154,21 @@ html, body {
   margin-bottom: 5px;
 }
 
-/* line 79, partials/_token.scss */
+/* line 81, partials/_token.scss */
 #search_results_wrapper, #directionsPanel {
   width: 100%;
   margin: 1em 0 0 0;
   padding: 0 0 .5em 0;
   display: none;
 }
-/* line 87, partials/_token.scss */
+/* line 89, partials/_token.scss */
 #search_results_wrapper .within span, #directionsPanel .within span {
   font-family: Verdana;
   font-size: 1.2em;
   color: #fff;
 }
 
-/* line 97, partials/_token.scss */
+/* line 99, partials/_token.scss */
 #search_results {
   padding-top: .1em;
   font-family: Arial;
@@ -179,20 +184,20 @@ html, body {
   text-align: left;
 }
 
-/* line 108, partials/_token.scss */
+/* line 110, partials/_token.scss */
 #search_results p.loc_name {
   font-weight: bold;
   margin: 0;
   padding: 0;
 }
 
-/* line 114, partials/_token.scss */
+/* line 116, partials/_token.scss */
 #search_results p {
   margin: 0;
   padding: 0;
 }
 
-/* line 119, partials/_token.scss */
+/* line 121, partials/_token.scss */
 input.rounded {
   border: 1px solid #ccc;
   -webkit-border-radius: 10px;
@@ -208,24 +213,24 @@ input.rounded {
   width: 93%;
 }
 
-/* line 130, partials/_token.scss */
+/* line 132, partials/_token.scss */
 input.rounded:focus {
   border-color: #339933;
 }
 
-/* line 134, partials/_token.scss */
+/* line 136, partials/_token.scss */
 div.buttonholder {
   width: 160px;
   margin: 0.5em auto;
   display: none;
 }
 
-/* line 140, partials/_token.scss */
+/* line 142, partials/_token.scss */
 #findatoken {
   font-size: 1.1em;
 }
 
-/* line 144, partials/_token.scss */
+/* line 146, partials/_token.scss */
 .radius_select {
   width: 140px;
   /* height: 75px; */
@@ -235,13 +240,13 @@ div.buttonholder {
   box-shadow: 2px 2px 3px #666;
 }
 
-/* line 153, partials/_token.scss */
+/* line 155, partials/_token.scss */
 .refresh_list {
   font-family: Verdana;
   font-size: 1.5em;
 }
 
-/* line 158, partials/_token.scss */
+/* line 160, partials/_token.scss */
 .toDirections {
   float: right;
   position: relative;
@@ -251,14 +256,14 @@ div.buttonholder {
   cursor: pointer;
 }
 
-/* line 167, partials/_token.scss */
+/* line 169, partials/_token.scss */
 .locations_found {
   text-align: center;
   margin: 0 auto;
   margin-top: .3em;
 }
 
-/* line 173, partials/_token.scss */
+/* line 175, partials/_token.scss */
 #directionsPanel {
   background-color: #fff;
   display: block;
