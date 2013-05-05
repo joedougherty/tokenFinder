@@ -100,14 +100,17 @@ $(document).ready( function() {
   });
 
   $('#search_results').on("click", ".list_loc p", function(event) {
+    showFade();
     // Pull these cached vals from DOM
     var origin_lat = $('#cached_lat').val(); 
     var origin_lon = $('#cached_lon').val();
     
     var dest_lat = $(this).parent().find('.loc_lat').html();
     var dest_lon = $(this).parent().find('.loc_lon').html();
+  
+    $(".list_loc").css("color", "black");
+    $(this).parent().css("color", "orange");   
  
-    showFade();
     $('#directionsPanel').empty();
   
     directions_calcRoute([origin_lat, origin_lon], [dest_lat, dest_lon]);
