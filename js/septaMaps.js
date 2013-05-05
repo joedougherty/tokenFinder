@@ -104,7 +104,20 @@ function directions_calcRoute(origin, destination) {
   directionsDisplay.setPanel(document.getElementById("directionsPanel"));
 }
 
+function showFade() {
+  var windowHeight = $(window).height();
+  var loading_img_div = $('#fade_loading_img');
+
+  loading_img_div.css("top", windowHeight/2 - 100);  
+  $('#fade').show();  
+}
+
+function hideFade() {
+  $('#fade').hide();
+}
+
 function codeAddress(lat, lon) {
+  showFade();
   $('div#search_results').empty();  
 
   /* Cache these vals just in case the user refreshes the results  */
@@ -156,7 +169,7 @@ function codeAddress(lat, lon) {
     
     },
     complete: function(data) {
-      $("#loading_img").hide();
+      hideFade();
     }
 
   });

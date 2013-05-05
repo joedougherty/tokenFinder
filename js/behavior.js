@@ -99,17 +99,25 @@ $(document).ready( function() {
     gmapsGeolocate();
   });
 
-  $('#search_results').on("click", ".toDirections", function(event) {
+  $('#search_results').on("click", ".list_loc p", function(event) {
     // Pull these cached vals from DOM
     var origin_lat = $('#cached_lat').val(); 
     var origin_lon = $('#cached_lon').val();
     
-    var dest_lat = $(this).find('.loc_lat').html();
-    var dest_lon = $(this).find('.loc_lon').html();
+    var dest_lat = $(this).parent().find('.loc_lat').html();
+    var dest_lon = $(this).parent().find('.loc_lon').html();
  
+    showFade();
     $('#directionsPanel').empty();
   
     directions_calcRoute([origin_lat, origin_lon], [dest_lat, dest_lon]);
+    $('#directionsPanel').fadeIn();
+    hideFade();
+
+    $('body, html').animate({
+        scrollTop: 0
+        }, 500);
+    return false;
   });
 
 });
