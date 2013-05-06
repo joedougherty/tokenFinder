@@ -1,3 +1,4 @@
+
 function success_callback(p) {
   latitude  = p.coords.latitude.toFixed(2);
   longitude = p.coords.longitude.toFixed(2);
@@ -145,14 +146,15 @@ function codeAddress(lat, lon) {
             dist_to_loc = dist_to_loc.toFixed(3);
 
             resultsDiv = '<div class="list_loc">';
-            resultsDiv += '<p class="loc_name">' + item.location_name.replace(/"/g, '') + '</p>';
-            resultsDiv += '<p>' + item.location_data.address1.replace(/"/g, '') + '</p>';
-            resultsDiv += '<p>' + dist_to_loc  + ' miles</p>';
-            resultsDiv += '<p>' + item.location_data.hours.replace(/"/g, '') + '</p>';
+            resultsDiv += '<a href="location.php?origin_lat=' + lat + '&origin_lon=' + lon + '&dest_lat=' + item.location_lat  + '&dest_lon=' + item.location_lon +'" data-transition="slide">';
+            resultsDiv += '<span class="loc_name">' + item.location_name.replace(/"/g, '') + '</span>';
+            resultsDiv += '<span>' + item.location_data.address1.replace(/"/g, '') + '</span>';
+            resultsDiv += '<span>' + dist_to_loc  + ' miles</span>';
+            resultsDiv += '<span>' + item.location_data.hours.replace(/"/g, '') + '</span>';
+            resultsDiv += '</a>';
+            resultsDiv += '<input type="hidden" class="loc_lat">'+ item.location_lat +'</input>';
+            resultsDiv += '<input type="hidden" class="loc_lon">'+ item.location_lon +'</input>';
             resultsDiv += '<div class="toDirections">&gt;';
-            resultsDiv += '<div class="loc_lat">' + item.location_lat + '</div>';
-            resultsDiv += '<div class="loc_lon">' + item.location_lon + '</div>';
-            resultsDiv += '</div>';
             resultsDiv += '</div>';
 
           }

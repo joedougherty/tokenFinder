@@ -99,8 +99,7 @@ $(document).ready( function() {
     gmapsGeolocate();
   });
 
-  $('#search_results').on("click", ".list_loc p", function(event) {
-    showFade();
+  $('#search_results').on("click", ".list_loc a", function(event) {
     // Pull these cached vals from DOM
     var origin_lat = $('#cached_lat').val(); 
     var origin_lon = $('#cached_lon').val();
@@ -108,18 +107,12 @@ $(document).ready( function() {
     var dest_lat = $(this).parent().find('.loc_lat').html();
     var dest_lon = $(this).parent().find('.loc_lon').html();
   
-    $(".list_loc").css("color", "black");
-    $(this).parent().css("color", "orange");   
- 
-    $('#directionsPanel').empty();
+    $(".list_loc a span").css("color", "black");
+    $(this).parent().find('a span').css("color", "orange");   
   
-    directions_calcRoute([origin_lat, origin_lon], [dest_lat, dest_lon]);
-    $('#directionsPanel').fadeIn();
-    hideFade();
-
-    $('body, html').animate({
-        scrollTop: 0
-        }, 500);
+    var location_url = 'location.php?origin_lat='+ origin_lat +'&origin_log='+ origin_lon +'&dest_lat='+ dest_lat +'&dest_lon='+ dest_lon;
+    $.mobile.changePage( location_url, { transition: "slide"} );
+     
     return false;
   });
 

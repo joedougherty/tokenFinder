@@ -95,7 +95,13 @@ html, body {
     border-top: 1px solid #ccc;
     padding: 5px 0 0 20px;
     margin-bottom: 5px;
-    p { cursor: pointer;  }
+
+    a { text-decoration: none; }
+
+    span {
+        display: block;
+        color: #000;
+    }
 }
 
 #search_results_wrapper {
@@ -190,6 +196,7 @@ div.buttonholder {
     margin-top: .3em;
 }
 
+/*
 #directionsPanel {
     @extend #search_results_wrapper;
     display: none; 
@@ -197,4 +204,13 @@ div.buttonholder {
 	font-family: $defaultFont;
     margin: 0 auto;
     margin-top: 2.2em;
+}
+*/
+
+.coords-container { display: none; }
+
+#directionsPanel {
+    display: block;
+    font-family: $defaultFont;
+    margin-top: -.5em;
 }
