@@ -57,6 +57,7 @@ $(document).ready( function() {
   for (var x=2; x<11; x++) {
     var val = x/2;
     var m = (x == 2) ? "mile" : "miles";
+
     selectMenu += '<option value="'+ val +'">'+ val +' '+ m +'</option>';
   }
 
@@ -101,19 +102,18 @@ $(document).ready( function() {
 
   $('#search_results').on("click", ".list_loc a", function(event) {
     // Pull these cached vals from DOM
-    var origin_lat = $('#cached_lat').val(); 
-    var origin_lon = $('#cached_lon').val();
+    var $origin_lat = $('#cached_lat').val(); 
+    var $origin_lon = $('#cached_lon').val();
     
-    var dest_lat = $(this).parent().find('.loc_lat').html();
-    var dest_lon = $(this).parent().find('.loc_lon').html();
-  
+    // Pull these from the location record
+    var $dest_lat = $(this).parent().find('.loc_lat').val();
+    var $dest_lon = $(this).parent().find('.loc_lon').val();
+
     $(".list_loc a span").css("color", "black");
-    $(this).parent().find('a span').css("color", "orange");   
-  
-    var location_url = 'location.php?origin_lat='+ origin_lat +'&origin_log='+ origin_lon +'&dest_lat='+ dest_lat +'&dest_lon='+ dest_lon;
-    $.mobile.changePage( location_url, { transition: "slide"} );
-     
-    return false;
+    $(this).parent().find('a span').css("color", "orange"); 
+    
+    initialize([$origin_lat, $origin_lon], "locationMap");
+    directions_calcRoute([$origin_lat, $origin_lon], [$dest_lat, $dest_lon], "locationMap", "locationDirectionsPanel");
   });
 
 });

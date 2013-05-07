@@ -1,4 +1,3 @@
-
 function success_callback(p) {
   latitude  = p.coords.latitude.toFixed(2);
   longitude = p.coords.longitude.toFixed(2);
@@ -15,13 +14,14 @@ function error_callback(p) {
 var geocoder;
 var map;
 
-function initialize(coordArray) {
-
-  if (arguments[0] == undefined) {
+function initialize(coordArray, targetDiv) {
+  if (arguments[0] == undefined || arguments[0] == '') {
     var coords = [39.95, -75.16];
   } else {
     var coords = coordArray;
   }
+
+  var targetDiv = targetDiv || "map_canvas";
 
   geocoder = new google.maps.Geocoder;
   
@@ -32,7 +32,8 @@ function initialize(coordArray) {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
     
-  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  //map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  map = new google.maps.Map(document.getElementById( targetDiv ), myOptions);
 
   var myLatlng = new google.maps.LatLng(coords[0], coords[1]);
     
@@ -44,7 +45,6 @@ function initialize(coordArray) {
 }
 
 function gmapsGeolocate() {
-
   var address = $("#address").val();
   
   // Tack on the city just in case
@@ -73,7 +73,7 @@ function gmapsGeolocate() {
 
 }
 
-function directions_calcRoute(origin, destination) {
+function directions_calcRoute(origin, destination, targetMapDiv, targetDirectionsPanel) {
   var directionsDisplay;
   var directionsService = new google.maps.DirectionsService();
   var walking = google.maps.TravelMode.WALKING;
@@ -100,9 +100,12 @@ function directions_calcRoute(origin, destination) {
     }
   });
 
-  map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+  //map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+  map = new google.maps.Map(document.getElementById( targetMapDiv  ), mapOptions);
   directionsDisplay.setMap(map);
-  directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+  
+  //directionsDisplay.setPanel(document.getElementById("directionsPanel"));
+  directionsDisplay.setPanel(document.getElementById( targetDirectionsPanel ));
 }
 
 function showFade() {
@@ -146,14 +149,15 @@ function codeAddress(lat, lon) {
             dist_to_loc = dist_to_loc.toFixed(3);
 
             resultsDiv = '<div class="list_loc">';
-            resultsDiv += '<a href="location.php?origin_lat=' + lat + '&origin_lon=' + lon + '&dest_lat=' + item.location_lat  + '&dest_lon=' + item.location_lon +'" data-transition="slide">';
+            //resultsDiv += '<a href="location.php?origin_lat=' + lat + '&origin_lon=' + lon + '&dest_lat=' + item.location_lat  + '&dest_lon=' + item.location_lon +'" data-transition="slide">';
+            resultsDiv += '<a href="#page_two" data-transition="slide">';
             resultsDiv += '<span class="loc_name">' + item.location_name.replace(/"/g, '') + '</span>';
             resultsDiv += '<span>' + item.location_data.address1.replace(/"/g, '') + '</span>';
             resultsDiv += '<span>' + dist_to_loc  + ' miles</span>';
             resultsDiv += '<span>' + item.location_data.hours.replace(/"/g, '') + '</span>';
             resultsDiv += '</a>';
-            resultsDiv += '<input type="hidden" class="loc_lat">'+ item.location_lat +'</input>';
-            resultsDiv += '<input type="hidden" class="loc_lon">'+ item.location_lon +'</input>';
+            resultsDiv += '<input type="hidden" class="loc_lat" value="'+ item.location_lat +'" />';
+            resultsDiv += '<input type="hidden" class="loc_lon" value="'+ item.location_lon +'" />';
             resultsDiv += '<div class="toDirections">&gt;';
             resultsDiv += '</div>';
 

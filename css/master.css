@@ -156,9 +156,10 @@ html, body {
   margin-bottom: 0.5em;
   font-weight: bold;
   display: none;
+  text-shadow: none !important;
 }
 
-/* line 85, partials/_token.scss */
+/* line 86, partials/_token.scss */
 #map_canvas {
   height: 250px;
   width: 100%;
@@ -166,7 +167,16 @@ html, body {
   margin: 0 auto;
 }
 
-/* line 92, partials/_token.scss */
+/* line 93, partials/_token.scss */
+#locationMap {
+  display: block !important;
+  height: 250px;
+  width: 100%;
+  margin-top: 10px;
+  margin: 0 auto;
+}
+
+/* line 101, partials/_token.scss */
 .list_loc {
   width: 90%;
   margin: 0 auto;
@@ -174,31 +184,35 @@ html, body {
   padding: 5px 0 0 20px;
   margin-bottom: 5px;
 }
-/* line 99, partials/_token.scss */
+/* line 108, partials/_token.scss */
 .list_loc a {
   text-decoration: none;
 }
-/* line 101, partials/_token.scss */
+/* line 109, partials/_token.scss */
+.list_loc input {
+  display: none !important;
+}
+/* line 110, partials/_token.scss */
 .list_loc span {
   display: block;
   color: #000;
 }
 
-/* line 107, partials/_token.scss */
+/* line 116, partials/_token.scss */
 #search_results_wrapper {
   width: 100%;
   margin: 1em 0 0 0;
   padding: 0 0 .5em 0;
   display: none;
 }
-/* line 115, partials/_token.scss */
+/* line 124, partials/_token.scss */
 #search_results_wrapper .within span {
   font-family: Verdana;
   font-size: 1.2em;
   color: #fff;
 }
 
-/* line 125, partials/_token.scss */
+/* line 134, partials/_token.scss */
 #search_results {
   padding-top: .1em;
   font-family: Arial;
@@ -214,20 +228,20 @@ html, body {
   text-align: left;
 }
 
-/* line 136, partials/_token.scss */
+/* line 145, partials/_token.scss */
 #search_results p.loc_name {
   font-weight: bold;
   margin: 0;
   padding: 0;
 }
 
-/* line 142, partials/_token.scss */
+/* line 151, partials/_token.scss */
 #search_results p {
   margin: 0;
   padding: 0;
 }
 
-/* line 147, partials/_token.scss */
+/* line 156, partials/_token.scss */
 input.rounded {
   border: 1px solid #ccc;
   -webkit-border-radius: 10px;
@@ -243,39 +257,36 @@ input.rounded {
   width: 93%;
 }
 
-/* line 158, partials/_token.scss */
+/* line 167, partials/_token.scss */
 input.rounded:focus {
   border-color: #339933;
 }
 
-/* line 162, partials/_token.scss */
+/* line 171, partials/_token.scss */
 div.buttonholder {
-  width: 160px;
+  width: 200px;
   margin: 0.5em auto;
   display: none;
 }
 
-/* line 168, partials/_token.scss */
+/* line 177, partials/_token.scss */
 #findatoken {
   font-size: 1.1em;
 }
 
-/* line 172, partials/_token.scss */
+/* line 181, partials/_token.scss */
 .radius_select {
   width: 140px;
   font-family: Verdana;
-  font-size: 1.5em;
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 3px #666;
 }
 
-/* line 180, partials/_token.scss */
+/* line 186, partials/_token.scss */
 .refresh_list {
   font-family: Verdana;
   font-size: 1.5em;
 }
 
-/* line 185, partials/_token.scss */
+/* line 191, partials/_token.scss */
 .toDirections {
   float: right;
   position: relative;
@@ -284,7 +295,7 @@ div.buttonholder {
   color: #606bd2;
 }
 
-/* line 193, partials/_token.scss */
+/* line 199, partials/_token.scss */
 .locations_found {
   text-align: center;
   margin: 0 auto;
@@ -301,12 +312,12 @@ div.buttonholder {
     margin-top: 2.2em;
 }
 */
-/* line 210, partials/_token.scss */
+/* line 216, partials/_token.scss */
 .coords-container {
   display: none;
 }
 
-/* line 212, partials/_token.scss */
+/* line 218, partials/_token.scss */
 #directionsPanel {
   display: block;
   font-family: Verdana;

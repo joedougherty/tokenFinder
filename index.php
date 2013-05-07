@@ -30,58 +30,68 @@
   
 <body class="home-page">
 
-  <div class="outer_wrapper">
-    <div id="fade">
-     <div id="fade_loading_img">
-       <img src="img/loading.gif" alt="Loading..." />
-     </div> 
-    </div>
-    <div class="inner_wrapper">
- 
-      <div id="where_you_at">
-        <h1>Find Tokens!</h1>
-      </div>
+    <!-- Begin page_one -->
+    <div data-role="page" id="page_one">
+      <div class="outer_wrapper">
+        <div id="fade">
+         <div id="fade_loading_img">
+           <img src="img/loading.gif" alt="Loading..." />
+         </div> 
+        </div>
+        <div class="inner_wrapper">
+     
+          <div id="where_you_at">
+            <h1>Find Tokens!</h1>
+          </div>
 
-      <input id="address" type="text" class="rounded default-value" value="Enter Address Here">
-      
-      <div class="buttonholder">
-        <input type="button" id="findatoken" value="Use This Address">
-      </div>
+          <input id="address" type="text" class="rounded default-value" value="Enter Address Here">
+          
+          <div class="buttonholder">
+            <input type="button" id="findatoken" value="Use This Address">
+          </div>
 
-      <div class="autotrack">
-          <p><em>or</em></p>
-          <p><button>Find my location</button></p>
-      </div>
+          <div class="autotrack">
+              <p><em>or</em></p>
+              <p><button>Find my location</button></p>
+          </div>
 
-      <div id="map_overlay">
-        <div id="scroll_message">Scroll below map to see locations.</div>
-        <div id="map_canvas"></div>
-      </div>
-      
-      <div id="directionsPanel"></div>
+          <div id="map_overlay">
+            <div id="scroll_message">Scroll below map to see locations.</div>
+            <div id="map_canvas"></div>
+          </div>
+          
+          <div id="directionsPanel"></div>
 
-      <div id="search_results_wrapper">
-        <div>
-            <div class="within">
-                <span>within</span>
+          <div id="search_results_wrapper">
+            <div>
+                <div class="within">
+                    <span>within</span>
+                </div>
+                <select class="radius_select"></select>
+                <button class="refresh_list">Refresh</button> 
             </div>
-            <select class="radius_select"></select>
-            <button class="refresh_list">Refresh</button> 
-        </div>
-        <div id="search_results"></div>
+            <div id="search_results"></div>
 
-        <div>
-            <input type="hidden" id="cached_lat" />
-            <input type="hidden" id="cached_lon" />
-        </div>
+            <div>
+                <input type="hidden" id="cached_lat" />
+                <input type="hidden" id="cached_lon" />
+            </div>
 
+          </div>
+
+        </div>
       </div>
-
     </div>
-  </div>
+    <!-- End page_one -->
+
+    <!-- Begin page two -->
+    <div data-role="page" id="page_two">
+       <div id="locationMap"></div>
+       <div id="locationDirectionsPanel"></div> 
+    </div>
+    <!-- End page_two -->
 
 <script type="text/javascript">
-
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-36550069-1']);
   _gaq.push(['_trackPageview']);

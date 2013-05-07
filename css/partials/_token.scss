@@ -80,6 +80,7 @@ html, body {
     margin-bottom: 0.5em;
 	font-weight: bold;
 	display: none;
+    text-shadow: none !important;
 }
 
 #map_canvas { 
@@ -87,6 +88,14 @@ html, body {
 	width: 100%;
 	margin-top: 10px; 
 	margin: 0 auto;
+}
+
+#locationMap {
+    display: block !important;
+    height: 250px;
+    width: 100%;
+    margin-top: 10px;
+    margin: 0 auto;
 }
 
 .list_loc {
@@ -97,7 +106,7 @@ html, body {
     margin-bottom: 5px;
 
     a { text-decoration: none; }
-
+    input { display: none !important; }
     span {
         display: block;
         color: #000;
@@ -160,7 +169,7 @@ input.rounded:focus {
 }
 
 div.buttonholder {
-	width: 160px;
+	width: 200px;
 	margin: 0.5em auto;
 	display: none;
 }
@@ -172,9 +181,6 @@ div.buttonholder {
 .radius_select {
 	width: 140px;
 	font-family: $defaultFont;
-	font-size: 1.5em;
-	border: 1px solid #ccc;	
-	box-shadow: 2px 2px 3px #666;
 }
 
 .refresh_list {
