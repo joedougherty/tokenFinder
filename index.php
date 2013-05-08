@@ -34,10 +34,12 @@
     <!-- Begin page_one -->
     <div data-role="page" id="page_one">
       <div class="outer_wrapper">
-        <div id="fade">
-         <div id="fade_loading_img">
-           <img src="img/loading.gif" alt="Loading..." />
+        
+        <div class="fade">
+         <div class="fade_loading_img">
+           <img src="img/ajax-loader.gif" alt="Loading..." />
          </div> 
+
         </div>
         <div class="inner_wrapper">
      
@@ -95,6 +97,9 @@
 
     <!-- Begin page two -->
     <div data-role="page" id="page_two">
+       <div class="backBar">
+         <a href="#page_one">&lt; Back to Locations</a>
+       </div>
        <div id="locationMap"></div>
        <div id="locationDirectionsPanel"></div> 
     </div>

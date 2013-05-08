@@ -105,14 +105,14 @@ function directions_calcRoute(origin, destination, targetMapDiv, targetDirection
 
 function showFade() {
   var windowHeight = $(window).height();
-  var loading_img_div = $('#fade_loading_img');
+  var loading_img_div = $('.fade_loading_img');
 
   loading_img_div.css("top", windowHeight/2 - 100);  
-  $('#fade').show();  
+  $('.fade').show();  
 }
 
 function hideFade() {
-  $('#fade').hide();
+  $('.fade').hide();
 }
 
 function codeAddress(lat, lon) {
@@ -156,8 +156,8 @@ function codeAddress(lat, lon) {
             resultsDiv += '<a href="#page_two" data-transition="slide">';
             resultsDiv += '<span class="loc_name spanblock">' + item.location_name.replace(/"/g, '') + '</span>';
             resultsDiv += '<span class="loc_address spanblock">' + item.location_data.address1.replace(/"/g, '') + '</span>';
-            resultsDiv += '<span class="loc_distance spanblock">' + dist_to_loc  + ' miles</span>';
             resultsDiv += '<span class="loc_hours spanblock">' + item.location_data.hours.replace(/"/g, '') + '</span>';
+            resultsDiv += '<span class="loc_distance spanblock"> Distance: ' + dist_to_loc  + ' miles</span>';
             resultsDiv += '</a>';
             resultsDiv += '<input type="hidden" class="loc_lat" value="'+ item.location_lat +'" />';
             resultsDiv += '<input type="hidden" class="loc_lon" value="'+ item.location_lon +'" />';

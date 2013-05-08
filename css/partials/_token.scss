@@ -3,6 +3,36 @@ html, body {
     height: 100%;
 }
 
+.fade {
+    background: #fff;
+    position: fixed;
+    zoom: 1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none; 
+}
+
+.fade_loading_img {
+    position: relative;
+    z-index: 1100;
+    margin:0 auto;
+    width: 100px;
+}
+
+#where_you_at {
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-top: .25em;
+}
+
+.autotrack {
+    text-align: center;
+    font-weight: bold;
+}
+
 body {
     background: #f0f0f0;
 }
@@ -21,6 +51,7 @@ body {
     width: 100%;
     height: 265px !important;
     margin: 0 auto;
+    margin-top: 35px;
 }
 
 .buttonholder {
@@ -35,11 +66,24 @@ body {
     display: none;
 }
 
+#scroll_message {
+    text-align: center;
+    padding: .5em;
+    font-weight: bold;
+    color: orange;
+}
+
+.within {
+    text-align: center;
+    padding: .5em;
+    font-weight: bold;
+}
+
 .toDirections {
     float: right;
     margin-top: -2.5em;
     position: relative;
-    right: 3.5em;
+    right: 1em;
     color: #606bd2;
 }
 
@@ -66,15 +110,16 @@ div.list_loc {
     }
  
     .loc_address {
- 
+        color: #444; 
     }
  
     .loc_distance {
+        color: #444;    
         font-size: .95em;
     }
  
     .loc_hours {
- 
+        color: #444;
     }
 
     .spanblock {
@@ -84,4 +129,20 @@ div.list_loc {
 
 .zebra {
     background-color: #F7F8FF;
+}
+
+.backBar {
+    position: fixed;
+    top: 0;
+    width: 96%;
+    height: 35px;
+    background: #eee;
+    border-bottom: 1px solid #ccc;
+    z-index: 10;
+    a { 
+        margin-left: 1.25em;
+        margin-top: .5em;
+        display: block;
+        text-decoration: none;
+    }
 }

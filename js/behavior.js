@@ -84,6 +84,8 @@ $(document).ready( function() {
   });
 
   $('#search_results').on("click", ".list_loc a", function(event) {
+    showFade();
+    
     // Pull these cached vals from DOM
     var $origin_lat = $('#cached_lat').val(); 
     var $origin_lon = $('#cached_lon').val();
