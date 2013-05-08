@@ -84,6 +84,9 @@ $(document).ready( function() {
   });
 
   $('#search_results').on("click", ".list_loc a", function(event) {
+    $(".list_loc a span").css("color", "black");
+    $(this).parent().find('a span').css("color", "orange"); 
+    
     showFade();
     
     // Pull these cached vals from DOM
@@ -94,8 +97,6 @@ $(document).ready( function() {
     var $dest_lat = $(this).parent().find('.loc_lat').val();
     var $dest_lon = $(this).parent().find('.loc_lon').val();
 
-    $(".list_loc a span").css("color", "black");
-    $(this).parent().find('a span').css("color", "orange"); 
     
     initialize([$origin_lat, $origin_lon], "locationMap");
     directions_calcRoute([$origin_lat, $origin_lon], [$dest_lat, $dest_lon], "locationMap", "locationDirectionsPanel");
