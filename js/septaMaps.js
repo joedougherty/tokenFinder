@@ -32,16 +32,14 @@ function initialize(coordArray, targetDiv) {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
     
-  //map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
   map = new google.maps.Map(document.getElementById( targetDiv ), myOptions);
 
   var myLatlng = new google.maps.LatLng(coords[0], coords[1]);
     
   var marker = new google.maps.Marker({
       map: map,
-      position: myLatlng
+      position: myLatlng,
   });
-  
 }
 
 function gmapsGeolocate() {
@@ -100,11 +98,8 @@ function directions_calcRoute(origin, destination, targetMapDiv, targetDirection
     }
   });
 
-  //map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-  map = new google.maps.Map(document.getElementById( targetMapDiv  ), mapOptions);
+  map = new google.maps.Map(document.getElementById( targetMapDiv ), mapOptions);
   directionsDisplay.setMap(map);
-  
-  //directionsDisplay.setPanel(document.getElementById("directionsPanel"));
   directionsDisplay.setPanel(document.getElementById( targetDirectionsPanel ));
 }
 

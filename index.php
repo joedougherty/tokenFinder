@@ -67,7 +67,11 @@
                 <div class="within">
                     <span>within</span>
                 </div>
-                <select class="radius_select"></select>
+                <select class="radius_select">
+                  <option value="1" selected>1 mile</option>
+                  <option value="1.5">1.5 miles</option>
+                  <option value="2">2 miles</option>
+                </select>
                 <button class="refresh_list">Refresh</button> 
             </div>
             <div id="search_results"></div>

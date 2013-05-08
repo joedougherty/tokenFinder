@@ -47,23 +47,6 @@ $(document).ready( function() {
   });
 
   /**
-   * Generate the drop-down menu 
-   * for the user to select a radius
-   * greater than 1 mile
-   */
-
-  var selectMenu = '';
-
-  for (var x=2; x<11; x++) {
-    var val = x/2;
-    var m = (x == 2) ? "mile" : "miles";
-
-    selectMenu += '<option value="'+ val +'">'+ val +' '+ m +'</option>';
-  }
-
-  $('select.radius_select').append( selectMenu );
-
-  /**
    * Set the selected radius value in the DOM so we can
    * retrieve it in codeAddress() if need be
    */
@@ -114,6 +97,15 @@ $(document).ready( function() {
     
     initialize([$origin_lat, $origin_lon], "locationMap");
     directions_calcRoute([$origin_lat, $origin_lon], [$dest_lat, $dest_lon], "locationMap", "locationDirectionsPanel");
+    
+    var winHeight = $(window).height() + 1;
+    $(window).height( winHeight );
+  });
+
+  $('div').on('pageshow',function(event, ui){
+    $('#locationMap').hide();
+    $('#locationMap').show();
+    google.maps.event.trigger(map, 'resize');
   });
 
 });
