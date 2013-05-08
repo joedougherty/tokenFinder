@@ -25,6 +25,7 @@
     <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script> 
     <script type="text/javascript" src="js/septaMaps.js"></script>
     <script type="text/javascript" src="js/behavior.js"></script>    
+    <script type="text/javascript" src="js/tf_events.js"></script>    
     <script type="text/javascript" src="js/libs/geo-min.js"></script> 
   </head>
   
@@ -60,8 +61,6 @@
             <div id="map_canvas"></div>
           </div>
           
-          <div id="directionsPanel"></div>
-
           <div id="search_results_wrapper">
             <div>
                 <div class="within">
@@ -71,6 +70,12 @@
                   <option value="1" selected>1 mile</option>
                   <option value="1.5">1.5 miles</option>
                   <option value="2">2 miles</option>
+                  <option value="2.5">2.5 miles</option>
+                  <option value="3">3 miles</option>
+                  <option value="3.5">3.5 miles</option>
+                  <option value="4">4 miles</option>
+                  <option value="4.5">4.5 miles</option>
+                  <option value="5">5 miles</option>
                 </select>
                 <button class="refresh_list">Refresh</button> 
             </div>
@@ -94,7 +99,7 @@
        <div id="locationDirectionsPanel"></div> 
     </div>
     <!-- End page_two -->
-
+  
 <script type="text/javascript">
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-36550069-1']);

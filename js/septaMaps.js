@@ -133,9 +133,12 @@ function codeAddress(lat, lon) {
         alert('Could not find any tokens within a mile.');
       } else {
        
+        var recordctr = 0;
+
         $.each(data, function(i, item) {
 
           var resultsDiv;
+          var zebra;
 
           if (item.location_data != null) {
 
@@ -143,18 +146,25 @@ function codeAddress(lat, lon) {
             dist_to_loc = parseFloat( dist_to_loc );
             dist_to_loc = dist_to_loc.toFixed(3);
 
-            resultsDiv = '<div class="list_loc">';
-            //resultsDiv += '<a href="location.php?origin_lat=' + lat + '&origin_lon=' + lon + '&dest_lat=' + item.location_lat  + '&dest_lon=' + item.location_lon +'" data-transition="slide">';
+            if (recordctr % 2 == 0) {
+                zebra = '';
+            } else {
+                zebra = ' zebra';
+            }
+
+            resultsDiv = '<div class="list_loc'+ zebra +'">';
             resultsDiv += '<a href="#page_two" data-transition="slide">';
-            resultsDiv += '<span class="loc_name">' + item.location_name.replace(/"/g, '') + '</span>';
-            resultsDiv += '<span>' + item.location_data.address1.replace(/"/g, '') + '</span>';
-            resultsDiv += '<span>' + dist_to_loc  + ' miles</span>';
-            resultsDiv += '<span>' + item.location_data.hours.replace(/"/g, '') + '</span>';
+            resultsDiv += '<span class="loc_name spanblock">' + item.location_name.replace(/"/g, '') + '</span>';
+            resultsDiv += '<span class="loc_address spanblock">' + item.location_data.address1.replace(/"/g, '') + '</span>';
+            resultsDiv += '<span class="loc_distance spanblock">' + dist_to_loc  + ' miles</span>';
+            resultsDiv += '<span class="loc_hours spanblock">' + item.location_data.hours.replace(/"/g, '') + '</span>';
             resultsDiv += '</a>';
             resultsDiv += '<input type="hidden" class="loc_lat" value="'+ item.location_lat +'" />';
             resultsDiv += '<input type="hidden" class="loc_lon" value="'+ item.location_lon +'" />';
             resultsDiv += '<div class="toDirections">&gt;';
             resultsDiv += '</div>';
+
+            recordctr++;
 
           }
 

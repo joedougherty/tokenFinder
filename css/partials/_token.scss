@@ -3,8 +3,85 @@ html, body {
     height: 100%;
 }
 
-#locationMap {
-    width: 300px !important;
-    height: 300px !important;
+body {
+    background: #f0f0f0;
+}
+
+#page_one, #page_two {
+    position: relative;
+    width: 96%;
     margin: 0 auto;
+}
+
+#map_canvas {
+    height: 265px;
+}
+
+#locationMap {
+    width: 100%;
+    height: 265px !important;
+    margin: 0 auto;
+}
+
+.buttonholder {
+    display: none;
+}
+
+.adp-directions {
+    width: 100%;
+}
+
+#search_results_wrapper, #scroll_message {
+    display: none;
+}
+
+.toDirections {
+    float: right;
+    margin-top: -2.5em;
+    position: relative;
+    right: 3.5em;
+    color: #606bd2;
+}
+
+.locations_found {
+    text-align: center;
+    font-weight: bold;
+}
+
+div.list_loc {
+
+    border-bottom: 1px solid gray;
+    padding-top: .35em;
+    padding-bottom: .35em;
+    padding-left: .5em;
+
+    a { 
+        text-decoration: none;
+        color: #000;
+    }
+
+    .loc_name {
+        font-size: 1.15em;
+        font-weight: bold;
+    }
+ 
+    .loc_address {
+ 
+    }
+ 
+    .loc_distance {
+        font-size: .95em;
+    }
+ 
+    .loc_hours {
+ 
+    }
+
+    .spanblock {
+        display: block;
+    }
+}
+
+.zebra {
+    background-color: #F7F8FF;
 }

@@ -98,14 +98,7 @@ $(document).ready( function() {
     initialize([$origin_lat, $origin_lon], "locationMap");
     directions_calcRoute([$origin_lat, $origin_lon], [$dest_lat, $dest_lon], "locationMap", "locationDirectionsPanel");
     
-    var winHeight = $(window).height() + 1;
-    $(window).height( winHeight );
-  });
-
-  $('div').on('pageshow',function(event, ui){
-    $('#locationMap').hide();
-    $('#locationMap').show();
-    google.maps.event.trigger(map, 'resize');
+    $('#locationDirectionsPanel').empty(); // Prevent double-loading of walking directions 
   });
 
 });
