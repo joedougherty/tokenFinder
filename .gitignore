@@ -1,2 +1,4 @@
 *.swo
 *.swp
+*fabfile*
+exclude-list.txt

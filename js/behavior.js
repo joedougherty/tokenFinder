@@ -92,12 +92,11 @@ $(document).ready( function() {
     // Pull these cached vals from DOM
     var $origin_lat = $('#cached_lat').val(); 
     var $origin_lon = $('#cached_lon').val();
-    
+   
     // Pull these from the location record
     var $dest_lat = $(this).parent().find('.loc_lat').val();
     var $dest_lon = $(this).parent().find('.loc_lon').val();
-
-    
+   
     initialize([$origin_lat, $origin_lon], "locationMap");
     directions_calcRoute([$origin_lat, $origin_lon], [$dest_lat, $dest_lon], "locationMap", "locationDirectionsPanel");
     

@@ -79,13 +79,15 @@
                   <option value="4.5">4.5 miles</option>
                   <option value="5">5 miles</option>
                 </select>
-                <button class="refresh_list">Refresh</button> 
+                <button class="refresh_list">Refresh List</button> 
             </div>
             <div id="search_results"></div>
 
             <div>
                 <input type="hidden" id="cached_lat" />
                 <input type="hidden" id="cached_lon" />
+                <input type="hidden" id="dest_cached_lon" />
+                <input type="hidden" id="dest_cached_lon" />
             </div>
 
           </div>
@@ -98,7 +100,7 @@
     <!-- Begin page two -->
     <div data-role="page" id="page_two">
        <div class="backBar">
-         <a href="#page_one">&lt; Back to Locations</a>
+         <a href="#page_one" data-role="button" data-inline="true" data-direction="reverse">Back to Locations</a>
        </div>
        <div id="locationMap"></div>
        <div id="locationDirectionsPanel"></div> 
