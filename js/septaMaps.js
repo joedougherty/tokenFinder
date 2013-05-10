@@ -67,7 +67,7 @@ function gmapsGeolocate() {
       codeAddress(coordinates[0], coordinates[1]);
     }
 
-  });
+ });
 
 }
 
