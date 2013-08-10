@@ -49,6 +49,8 @@ function gmapsGeolocate() {
   // the user doesn't specify
   address = address + " philadelphia, pa";
   
+  console.log(address);
+
   geocoder.geocode({'address': address}, function(results, status) {
   
     if (status == google.maps.GeocoderStatus.OK) {

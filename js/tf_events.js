@@ -7,7 +7,6 @@ $(document).ready(function() {
   });
 
   // Redraw dom to fix gmaps
-
   $(document).on('pagechange', function(event){
     google.maps.event.trigger(map, 'resize');
     $('.fade').hide();
