@@ -1,2 +1,5 @@
 *.swo
 *.swp
+fabfile.py
+fabfile.pyc
+exclude-list.txt
