@@ -1,5 +1,0 @@
-.git
-fabfile.py
-fabfile.pyc
-.gitignore
-exclude-list.txt
