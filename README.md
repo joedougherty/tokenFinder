@@ -15,5 +15,6 @@ Feel free to send feedback to mashematician [at] gmail dot com.
 Automatic geolocation does not appear to cooperate with GPS Location on Android 2.2 (Froyo).
 
 ## TODO:
-* Implement responsive design.
-* Remove cruft from codebase.
+* Implement responsive design. [DONE]
+* Remove cruft from codebase.  [DONE]
+* Implement saved locations/favorites?
