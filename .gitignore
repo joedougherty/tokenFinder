@@ -1,5 +1,4 @@
 *.swo
 *.swp
-fabfile.py
-fabfile.pyc
+*fabfile*
 exclude-list.txt
