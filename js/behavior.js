@@ -74,14 +74,24 @@ $(document).ready( function() {
     return false; 
   });
    
-  $('#findatoken').click(function() {
+  $('#findatoken').click(findTokenLocation);
+  
+  $('#address').on('keyup', function(event) {
+    if (event.which == 13 || event.keyCode == 13) {
+        findTokenLocation();
+        return false;
+    }
+    return true;
+  });
+
+  function findTokenLocation() {
     $("#map_overlay").css({ 'z-index' : '0' });
     $("#loading_img").show();
     $("#scroll_message").hide(); 
 
     initialize();
     gmapsGeolocate();
-  });
+  }
 
   $('#search_results').on("click", ".list_loc a", function(event) {
     $(".list_loc a span").css("color", "black");

@@ -43,13 +43,12 @@ function initialize(coordArray, targetDiv) {
 }
 
 function gmapsGeolocate() {
-  var address = $("#address").val();
-  
+  var address = $("#address").val().trim();
+  if (isAddressWithoutCity(address)) {
   // Tack on the city just in case
   // the user doesn't specify
-  address = address + " philadelphia, pa";
-  
-  console.log(address);
+    address = address + " philadelphia, pa";
+  }
 
   geocoder.geocode({'address': address}, function(results, status) {
   
@@ -71,6 +70,14 @@ function gmapsGeolocate() {
 
  });
 
+}
+
+function isAddressWithoutCity(address) {
+  if (address.match(/^\d{5}(?:[-\s]\d{4})?$/)) {
+    return false;
+  }
+  address = address.toLowerCase().replace(" ", "");
+  return !address.endsWith(",pa");
 }
 
 function directions_calcRoute(origin, destination, targetMapDiv, targetDirectionsPanel) {
